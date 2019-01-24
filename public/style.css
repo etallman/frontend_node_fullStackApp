@@ -1,0 +1,14 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+#user-create-form {
+    margin-left: 300px;
+    width: 300px;
+    border: 2px solid red;
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+}
