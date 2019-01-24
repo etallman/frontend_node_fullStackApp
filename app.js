@@ -11,24 +11,25 @@ const usersArray = []
 
 // add POST request listener here
 app.post('/api/user', (req, res) => {
-    let taken = false;
+    let usernameTaken = false;
 
     for (user of usersArray) {
         if (user.username === req.body.username) {
-            taken = true
+            usernameTaken = true
             break
         } else {
-            taken = false
+            usernameTaken = false
         }
     }
-    if (taken) {
+    if (usernameTaken) {
         res.status(409).send()
     } else {
-        req.body.id = Math.random()
+        req.body.id = Math.floor((Math.random() * 5,000,000) + 1)
         usersArray.push(req.body)
         res.status(201).send()
-        console.log(userInputArray)
-        throw new Error("Username is Taken")
+        console.log(usersArray)
+        alert('Your userID is' + usersArray)
+        // throw new Error("Username is Taken")
     }
 })
 
